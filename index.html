@@ -1,894 +1,664 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Descubre AURA PERFUMES, una selección de fragancias para expresar tu estilo y personalidad."
-    >
+  <title>AURA PERFUMES | Encuentra tu esencia</title>
 
-    <meta name="theme-color" content="#2E2118">
+  <meta name="description" content="Descubre tu próxima fragancia en AURA PERFUMES. Explora aromas florales, frescos, dulces y amaderados.">
 
-    <title>AURA PERFUMES | Tu esencia, tu estilo</title>
+  <style>
+    :root {
+      --crema: #fbf7f0;
+      --blanco: #ffffff;
+      --cafe: #35251e;
+      --dorado: #b58a50;
+      --texto: #75685f;
+      --suave: #eee4d7;
+    }
 
-    <link rel="icon" href="img/logo.png" type="image/png">
-    <link rel="stylesheet" href="css/estilos.css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <script src="js/script.js" defer></script>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--crema);
+      color: var(--cafe);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contenedor {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .barra {
+      background: rgba(251, 247, 240, 0.97);
+      border-bottom: 1px solid #e9dfd2;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navegacion {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--dorado);
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-align: center;
+    }
+
+    .enlaces {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 13px;
+    }
+
+    .enlaces a:hover {
+      color: var(--dorado);
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--cafe);
+      color: white;
+      padding: 13px 24px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition: 0.3s;
+    }
+
+    .boton:hover {
+      background: var(--dorado);
+      transform: translateY(-2px);
+    }
+
+    .boton-dorado {
+      background: var(--dorado);
+    }
+
+    .portada {
+      min-height: 600px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 55px;
+      padding-bottom: 55px;
+    }
+
+    .etiqueta {
+      color: var(--dorado);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5vw, 67px);
+      margin-bottom: 22px;
+    }
+
+    h1 em {
+      color: var(--dorado);
+      font-weight: normal;
+    }
+
+    .descripcion {
+      max-width: 470px;
+      color: var(--texto);
+      margin-bottom: 28px;
+    }
+
+    .imagen-portada {
+      height: 490px;
+      position: relative;
+    }
+
+    .imagen-portada img {
+      height: 100%;
+      object-position: center;
+    }
+
+    .sello {
+      position: absolute;
+      left: -25px;
+      bottom: 25px;
+      background: var(--blanco);
+      padding: 17px 22px;
+      box-shadow: 0 8px 30px #35251e12;
+      font-family: Georgia, serif;
+      font-size: 15px;
+    }
+
+    .franja {
+      background: var(--cafe);
+      color: white;
+      padding: 23px 0;
+    }
+
+    .franja-interior {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .encabezado {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .encabezado h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      margin-bottom: 15px;
+    }
+
+    .encabezado p {
+      color: var(--texto);
+    }
+
+    .nosotros {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .imagen-nosotros {
+      height: 420px;
+    }
+
+    .imagen-nosotros img {
+      height: 100%;
+    }
+
+    .texto-nosotros h2 {
+      font-size: 42px;
+      margin-bottom: 22px;
+    }
+
+    .texto-nosotros p {
+      color: var(--texto);
+      margin-bottom: 18px;
+    }
+
+    .catalogo {
+      background: #f2eadd;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .tarjeta {
+      background: var(--blanco);
+      padding-bottom: 24px;
+      transition: transform 0.3s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-6px);
+    }
+
+    .tarjeta img {
+      height: 260px;
+    }
+
+    .tarjeta-contenido {
+      padding: 20px 18px 0;
+      text-align: center;
+    }
+
+    .tarjeta h3 {
+      font-size: 23px;
+      margin-bottom: 9px;
+    }
+
+    .tarjeta p {
+      color: var(--texto);
+      font-size: 13px;
+      min-height: 45px;
+      margin-bottom: 15px;
+    }
+
+    .enlace-producto {
+      color: var(--dorado);
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .beneficio {
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .icono {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--dorado);
+      border-radius: 50%;
+      color: var(--dorado);
+      font-size: 23px;
+      margin: 0 auto 22px;
+    }
+
+    .beneficio h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .beneficio p {
+      color: var(--texto);
+      font-size: 14px;
+    }
+
+    .contacto {
+      background: #e9ddce;
+      text-align: center;
+    }
+
+    .contacto h2 {
+      font-size: clamp(34px, 4vw, 48px);
+      margin-bottom: 18px;
+    }
+
+    .contacto p {
+      color: var(--texto);
+      margin: 0 auto 28px;
+      max-width: 550px;
+    }
+
+    footer {
+      background: var(--cafe);
+      color: white;
+      padding: 38px 0;
+      text-align: center;
+    }
+
+    footer .logo {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #dfd1c3;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 99;
+      background: #267d50;
+      color: white;
+      padding: 13px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      box-shadow: 0 5px 20px #0002;
+    }
+
+    @media (max-width: 850px) {
+      .navegacion {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      .enlaces {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .portada {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .imagen-portada {
+        height: 400px;
+      }
+
+      .nosotros {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .beneficios {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 22px;
+      }
+
+      .enlaces {
+        gap: 8px 13px;
+        font-size: 12px;
+      }
+
+      .portada {
+        padding-top: 35px;
+      }
+
+      .imagen-portada {
+        height: 320px;
+      }
+
+      .sello {
+        left: -8px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .tarjetas {
+        grid-template-columns: 1fr;
+      }
+
+      .tarjeta img {
+        height: 300px;
+      }
+
+      .texto-nosotros h2 {
+        font-size: 34px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- Enlace para saltar directamente al contenido principal -->
-    <a class="skip-link" href="#contenido">
-        Saltar al contenido principal
-    </a>
+  <header class="barra">
+    <div class="contenedor navegacion">
+      <a href="#inicio" class="logo">
+        AURA PERFUMES
+        <span>EL ARTE DE LA ESENCIA</span>
+      </a>
 
-    <!-- ENCABEZADO -->
-    <header class="header" id="encabezado">
+      <nav class="enlaces" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#fragancias">Fragancias</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="container header__container">
+  <main>
+    <section class="contenedor portada" id="inicio">
+      <div>
+        <p class="etiqueta">El arte de elegir tu esencia</p>
 
-            <a
-                class="logo"
-                href="#inicio"
-                aria-label="AURA PERFUMES, ir al inicio"
-            >
-                <img
-                    class="logo__imagen"
-                    src="img/logo.png"
-                    alt="Logotipo de AURA PERFUMES"
-                    width="60"
-                    height="60"
-                >
+        <h1>Una fragancia.<br>Una <em>esencia</em> única.</h1>
 
-                <span class="logo__texto">
-                    AURA <span>PERFUMES</span>
-                </span>
-            </a>
+        <p class="descripcion">
+          Descubre aromas que hablan de ti, acompañan tus momentos
+          y convierten cada recuerdo en algo especial.
+        </p>
 
-            <!-- Botón del menú para dispositivos móviles -->
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                type="button"
-                aria-label="Abrir menú de navegación"
-                aria-expanded="false"
-                aria-controls="navegacion-principal"
-            >
-                <span class="menu-toggle__line"></span>
-                <span class="menu-toggle__line"></span>
-                <span class="menu-toggle__line"></span>
-            </button>
+        <a class="boton" href="#fragancias">DESCUBRIR FRAGANCIAS</a>
+      </div>
 
-            <!-- Navegación principal -->
-            <nav
-                class="nav"
-                id="navegacion-principal"
-                aria-label="Navegación principal"
-            >
-                <ul class="nav__list">
+      <div class="imagen-portada">
+        <img
+          src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1000&q=85"
+          alt="Frasco de perfume elegante"
+          fetchpriority="high"
+        >
+        <div class="sello">Tu esencia, tu historia.</div>
+      </div>
+    </section>
 
-                    <li class="nav__item">
-                        <a class="nav__link" href="#inicio">
-                            Inicio
-                        </a>
-                    </li>
+    <div class="franja">
+      <div class="contenedor franja-interior">
+        <span>✧ ELEGANCIA</span>
+        <span>✧ PERSONALIDAD</span>
+        <span>✧ AROMAS INOLVIDABLES</span>
+      </div>
+    </div>
 
-                    <li class="nav__item">
-                        <a class="nav__link" href="#nosotros">
-                            Nosotros
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__link" href="#servicios">
-                            Fragancias
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__link" href="#beneficios">
-                            Beneficios
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a class="nav__link nav__link--button" href="#contacto">
-                            Contáctanos
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-
+    <section id="nosotros">
+      <div class="contenedor nosotros">
+        <div class="imagen-nosotros">
+          <img
+            src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85"
+            alt="Colección de fragancias"
+            loading="lazy"
+          >
         </div>
 
-    </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main id="contenido">
-
-        <!-- INICIO / HERO -->
-        <section class="hero" id="inicio" aria-labelledby="hero-titulo">
-
-            <div class="container hero__container">
-
-                <div class="hero__content">
-
-                    <p class="hero__eyebrow">
-                        DESCUBRE TU ESENCIA
-                    </p>
-
-                    <h1 class="hero__title" id="hero-titulo">
-                        Una fragancia.
-                        <span>Una esencia única.</span>
-                    </h1>
-
-                    <p class="hero__description">
-                        Encuentra aromas que acompañen tu personalidad,
-                        resalten tu estilo y conviertan cada momento
-                        en una experiencia especial.
-                    </p>
-
-                    <div class="hero__actions">
-
-                        <a class="button button--primary" href="#servicios">
-                            Explorar fragancias
-                        </a>
-
-                        <a class="button button--secondary" href="#nosotros">
-                            Conoce nuestra esencia
-                        </a>
-
-                    </div>
-
-                    <div class="hero__details">
-
-                        <div class="hero__detail">
-                            <span class="hero__detail-number">01</span>
-                            <span class="hero__detail-text">
-                                Tu personalidad
-                            </span>
-                        </div>
-
-                        <div class="hero__detail">
-                            <span class="hero__detail-number">02</span>
-                            <span class="hero__detail-text">
-                                Tu estilo
-                            </span>
-                        </div>
-
-                        <div class="hero__detail">
-                            <span class="hero__detail-number">03</span>
-                            <span class="hero__detail-text">
-                                Tu esencia
-                            </span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="hero__image-container">
-
-                    <img
-                        class="hero__image"
-                        src="img/hero.webp"
-                        alt="Imagen principal de AURA PERFUMES que representa el universo de las fragancias."
-                        width="700"
-                        height="850"
-                        fetchpriority="high"
-                    >
-
-                    <div class="hero__image-label">
-                        <span class="hero__image-label-small">
-                            ENCUENTRA TU AROMA
-                        </span>
-
-                        <span class="hero__image-label-large">
-                            Tu esencia te distingue.
-                        </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- NOSOTROS -->
-        <section
-            class="about section"
-            id="nosotros"
-            aria-labelledby="about-title"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-heading__eyebrow">
-                        NUESTRA ESENCIA
-                    </p>
-
-                    <h2 class="section-heading__title" id="about-title">
-                        Más que un perfume, una forma de expresarte
-                    </h2>
-
-                    <p class="section-heading__description">
-                        En AURA PERFUMES creemos que una fragancia
-                        puede acompañar recuerdos, transmitir emociones
-                        y convertirse en parte de tu identidad.
-                    </p>
-
-                </div>
-
-                <div class="about__grid">
-
-                    <article class="about-card">
-
-                        <span class="about-card__number" aria-hidden="true">
-                            01
-                        </span>
-
-                        <h3 class="about-card__title">
-                            Personalidad
-                        </h3>
-
-                        <p class="about-card__text">
-                            Cada aroma tiene su carácter. Encuentra
-                            una fragancia que conecte con tu manera
-                            de ser.
-                        </p>
-
-                    </article>
-
-                    <article class="about-card">
-
-                        <span class="about-card__number" aria-hidden="true">
-                            02
-                        </span>
-
-                        <h3 class="about-card__title">
-                            Elegancia
-                        </h3>
-
-                        <p class="about-card__text">
-                            Descubre aromas que complementen tus
-                            momentos especiales y tu estilo cotidiano.
-                        </p>
-
-                    </article>
-
-                    <article class="about-card">
-
-                        <span class="about-card__number" aria-hidden="true">
-                            03
-                        </span>
-
-                        <h3 class="about-card__title">
-                            Experiencia
-                        </h3>
-
-                        <p class="about-card__text">
-                            Queremos ayudarte a encontrar opciones
-                            que se adapten a tus gustos y preferencias.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- FRAGANCIAS -->
-        <section
-            class="products section"
-            id="servicios"
-            aria-labelledby="products-title"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <p class="section-heading__eyebrow">
-                        ENCUENTRA TU FAVORITO
-                    </p>
-
-                    <h2 class="section-heading__title" id="products-title">
-                        Un aroma para cada ocasión
-                    </h2>
-
-                    <p class="section-heading__description">
-                        Explora diferentes familias aromáticas y
-                        encuentra la que mejor se adapte a ti.
-                    </p>
-
-                </div>
-
-                <div class="products__grid">
-
-                    <!-- Producto 1 -->
-                    <article class="product-card">
-
-                        <div class="product-card__number" aria-hidden="true">
-                            01
-                        </div>
-
-                        <div class="product-card__icon" aria-hidden="true">
-                            ✧
-                        </div>
-
-                        <p class="product-card__category">
-                            PERFIL AROMÁTICO
-                        </p>
-
-                        <h3 class="product-card__title">
-                            Florales
-                        </h3>
-
-                        <p class="product-card__description">
-                            Aromas delicados y elegantes con notas
-                            que evocan flores y jardines.
-                        </p>
-
-                        <a
-                            class="product-card__link"
-                            href="#contacto"
-                            data-interest="Fragancias florales"
-                            aria-label="Consultar por fragancias florales"
-                        >
-                            Consultar disponibilidad
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </article>
-
-                    <!-- Producto 2 -->
-                    <article class="product-card">
-
-                        <div class="product-card__number" aria-hidden="true">
-                            02
-                        </div>
-
-                        <div class="product-card__icon" aria-hidden="true">
-                            ◇
-                        </div>
-
-                        <p class="product-card__category">
-                            PERFIL AROMÁTICO
-                        </p>
-
-                        <h3 class="product-card__title">
-                            Amaderados
-                        </h3>
-
-                        <p class="product-card__description">
-                            Notas profundas y cálidas para quienes
-                            prefieren aromas con carácter.
-                        </p>
-
-                        <a
-                            class="product-card__link"
-                            href="#contacto"
-                            data-interest="Fragancias amaderadas"
-                            aria-label="Consultar por fragancias amaderadas"
-                        >
-                            Consultar disponibilidad
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </article>
-
-                    <!-- Producto 3 -->
-                    <article class="product-card">
-
-                        <div class="product-card__number" aria-hidden="true">
-                            03
-                        </div>
-
-                        <div class="product-card__icon" aria-hidden="true">
-                            ✦
-                        </div>
-
-                        <p class="product-card__category">
-                            PERFIL AROMÁTICO
-                        </p>
-
-                        <h3 class="product-card__title">
-                            Frescos
-                        </h3>
-
-                        <p class="product-card__description">
-                            Sensaciones limpias y ligeras para
-                            acompañarte durante el día.
-                        </p>
-
-                        <a
-                            class="product-card__link"
-                            href="#contacto"
-                            data-interest="Fragancias frescas"
-                            aria-label="Consultar por fragancias frescas"
-                        >
-                            Consultar disponibilidad
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </article>
-
-                    <!-- Producto 4 -->
-                    <article class="product-card">
-
-                        <div class="product-card__number" aria-hidden="true">
-                            04
-                        </div>
-
-                        <div class="product-card__icon" aria-hidden="true">
-                            ❋
-                        </div>
-
-                        <p class="product-card__category">
-                            PERFIL AROMÁTICO
-                        </p>
-
-                        <h3 class="product-card__title">
-                            Dulces
-                        </h3>
-
-                        <p class="product-card__description">
-                            Aromas envolventes con matices cálidos,
-                            dulces y acogedores.
-                        </p>
-
-                        <a
-                            class="product-card__link"
-                            href="#contacto"
-                            data-interest="Fragancias dulces"
-                            aria-label="Consultar por fragancias dulces"
-                        >
-                            Consultar disponibilidad
-                            <span aria-hidden="true">→</span>
-                        </a>
-
-                    </article>
-
-                </div>
-
-                <p class="products__note">
-                    La disponibilidad, las presentaciones y los precios
-                    se confirman al realizar tu consulta.
-                </p>
-
-            </div>
-
-        </section>
-
-        <!-- BENEFICIOS -->
-        <section
-            class="benefits section"
-            id="beneficios"
-            aria-labelledby="benefits-title"
-        >
-
-            <div class="container benefits__container">
-
-                <div class="benefits__intro">
-
-                    <p class="section-heading__eyebrow">
-                        UNA EXPERIENCIA PERSONAL
-                    </p>
-
-                    <h2 class="benefits__title" id="benefits-title">
-                        Encuentra una fragancia que hable por ti
-                    </h2>
-
-                    <p class="benefits__description">
-                        Elegir un perfume también es descubrir
-                        qué aromas te gustan y cómo quieres sentirte.
-                        Estamos aquí para ayudarte a encontrar opciones.
-                    </p>
-
-                    <a class="button button--primary" href="#contacto">
-                        Solicitar información
-                    </a>
-
-                </div>
-
-                <div class="benefits__list">
-
-                    <article class="benefit">
-
-                        <span class="benefit__icon" aria-hidden="true">
-                            ✓
-                        </span>
-
-                        <div>
-                            <h3 class="benefit__title">
-                                Atención personalizada
-                            </h3>
-
-                            <p class="benefit__text">
-                                Comparte tus preferencias para recibir
-                                orientación sobre las fragancias disponibles.
-                            </p>
-                        </div>
-
-                    </article>
-
-                    <article class="benefit">
-
-                        <span class="benefit__icon" aria-hidden="true">
-                            ✓
-                        </span>
-
-                        <div>
-                            <h3 class="benefit__title">
-                                Opciones para diferentes gustos
-                            </h3>
-
-                            <p class="benefit__text">
-                                Explora perfiles frescos, florales,
-                                dulces y amaderados.
-                            </p>
-                        </div>
-
-                    </article>
-
-                    <article class="benefit">
-
-                        <span class="benefit__icon" aria-hidden="true">
-                            ✓
-                        </span>
-
-                        <div>
-                            <h3 class="benefit__title">
-                                Información clara
-                            </h3>
-
-                            <p class="benefit__text">
-                                Consulta precios, presentaciones
-                                y disponibilidad antes de comprar.
-                            </p>
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- CONTACTO -->
-        <section
-            class="contact section"
-            id="contacto"
-            aria-labelledby="contact-title"
-        >
-
-            <div class="container contact__container">
-
-                <div class="contact__content">
-
-                    <p class="section-heading__eyebrow">
-                        HABLEMOS DE FRAGANCIAS
-                    </p>
-
-                    <h2 class="contact__title" id="contact-title">
-                        Tu próxima fragancia puede comenzar aquí
-                    </h2>
-
-                    <p class="contact__description">
-                        Cuéntanos qué estás buscando y prepara tu
-                        consulta para recibir información sobre
-                        nuestras fragancias.
-                    </p>
-
-                    <div class="contact__information">
-
-                        <div class="contact__information-item">
-                            <span
-                                class="contact__information-icon"
-                                aria-hidden="true"
-                            >
-                                ✧
-                            </span>
-
-                            <p>
-                                Atención personalizada
-                            </p>
-                        </div>
-
-                        <div class="contact__information-item">
-                            <span
-                                class="contact__information-icon"
-                                aria-hidden="true"
-                            >
-                                ✧
-                            </span>
-
-                            <p>
-                                Consultas sobre precios y disponibilidad
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Formulario -->
-                <div class="contact-form-wrapper">
-
-                    <form
-                        class="contact-form"
-                        id="contact-form"
-                        action="#contacto"
-                        method="get"
-                    >
-
-                        <div class="contact-form__heading">
-
-                            <h3 class="contact-form__title">
-                                Envíanos tu consulta
-                            </h3>
-
-                            <p class="contact-form__description">
-                                Completa los campos para preparar
-                                tu mensaje.
-                            </p>
-
-                        </div>
-
-                        <div class="form-field">
-
-                            <label for="nombre">
-                                Nombre completo
-                                <span aria-hidden="true">*</span>
-                            </label>
-
-                            <input
-                                type="text"
-                                id="nombre"
-                                name="nombre"
-                                placeholder="Escribe tu nombre"
-                                autocomplete="name"
-                                minlength="2"
-                                maxlength="80"
-                                required
-                                aria-describedby="nombre-error"
-                            >
-
-                            <small
-                                class="form-error"
-                                id="nombre-error"
-                            ></small>
-
-                        </div>
-
-                        <div class="form-field">
-
-                            <label for="correo">
-                                Correo electrónico
-                                <span aria-hidden="true">*</span>
-                            </label>
-
-                            <input
-                                type="email"
-                                id="correo"
-                                name="correo"
-                                placeholder="nombre@correo.com"
-                                autocomplete="email"
-                                maxlength="120"
-                                required
-                                aria-describedby="correo-error"
-                            >
-
-                            <small
-                                class="form-error"
-                                id="correo-error"
-                            ></small>
-
-                        </div>
-
-                        <div class="form-field">
-
-                            <label for="telefono">
-                                Teléfono
-                                <span class="optional">
-                                    (opcional)
-                                </span>
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="telefono"
-                                name="telefono"
-                                placeholder="Tu número de teléfono"
-                                autocomplete="tel"
-                                maxlength="25"
-                                aria-describedby="telefono-error"
-                            >
-
-                            <small
-                                class="form-error"
-                                id="telefono-error"
-                            ></small>
-
-                        </div>
-
-                        <div class="form-field">
-
-                            <label for="interes">
-                                ¿Qué tipo de fragancia buscas?
-                                <span aria-hidden="true">*</span>
-                            </label>
-
-                            <select
-                                id="interes"
-                                name="interes"
-                                required
-                                aria-describedby="interes-error"
-                            >
-
-                                <option value="">
-                                    Selecciona una opción
-                                </option>
-
-                                <option value="Fragancias florales">
-                                    Fragancias florales
-                                </option>
-
-                                <option value="Fragancias amaderadas">
-                                    Fragancias amaderadas
-                                </option>
-
-                                <option value="Fragancias frescas">
-                                    Fragancias frescas
-                                </option>
-
-                                <option value="Fragancias dulces">
-                                    Fragancias dulces
-                                </option>
-
-                                <option value="Otra fragancia">
-                                    Otra fragancia
-                                </option>
-
-                            </select>
-
-                            <small
-                                class="form-error"
-                                id="interes-error"
-                            ></small>
-
-                        </div>
-
-                        <div class="form-field">
-
-                            <label for="mensaje">
-                                Tu mensaje
-                                <span aria-hidden="true">*</span>
-                            </label>
-
-                            <textarea
-                                id="mensaje"
-                                name="mensaje"
-                                rows="5"
-                                placeholder="Cuéntanos qué fragancia buscas..."
-                                minlength="10"
-                                maxlength="1000"
-                                required
-                                aria-describedby="mensaje-error"
-                            ></textarea>
-
-                            <small
-                                class="form-error"
-                                id="mensaje-error"
-                            ></small>
-
-                        </div>
-
-                        <button
-                            class="button button--primary contact-form__button"
-                            type="submit"
-                        >
-                            Preparar consulta
-                        </button>
-
-                        <p
-                            class="form-status"
-                            id="form-status"
-                            role="status"
-                            aria-live="polite"
-                        ></p>
-
-                        <p class="form-privacy">
-                            Utiliza tus datos de contacto para que
-                            podamos identificar y responder tu consulta.
-                        </p>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- PIE DE PÁGINA -->
-    <footer class="footer">
-
-        <div class="container footer__container">
-
-            <a
-                class="footer__brand"
-                href="#inicio"
-                aria-label="AURA PERFUMES, volver al inicio"
-            >
-                AURA PERFUMES
-            </a>
-
-            <p class="footer__text">
-                Tu esencia, tu estilo.
-            </p>
-
-            <nav aria-label="Navegación del pie de página">
-
-                <ul class="footer__links">
-
-                    <li>
-                        <a href="#inicio">
-                            Inicio
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#nosotros">
-                            Nosotros
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#servicios">
-                            Fragancias
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#contacto">
-                            Contacto
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-            <p class="footer__copyright">
-                &copy; <span id="current-year"></span>
-                AURA PERFUMES. Todos los derechos reservados.
-            </p>
-
+        <div class="texto-nosotros">
+          <p class="etiqueta">Nuestra esencia</p>
+
+          <h2>Sobre AURA PERFUMES</h2>
+
+          <p>
+            Creemos que cada fragancia cuenta una historia.
+            En AURA PERFUMES queremos ayudarte a descubrir aromas
+            que reflejen tu personalidad y te acompañen en cada ocasión.
+          </p>
+
+          <p>
+            Elegancia, autenticidad y estilo en una sola experiencia.
+            Porque tu aroma también habla de ti.
+          </p>
+
+          <a class="boton" href="#contacto">ENCUENTRA TU AROMA</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogo" id="fragancias">
+      <div class="contenedor">
+        <div class="encabezado">
+          <p class="etiqueta">Encuentra tu aroma</p>
+          <h2>Un aroma para cada esencia</h2>
+          <p>
+            Explora nuestras familias olfativas y encuentra
+            el estilo que mejor va contigo.
+          </p>
         </div>
 
-    </footer>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <img
+              src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=650&q=85"
+              alt="Perfume de estilo floral"
+              loading="lazy"
+            >
+            <div class="tarjeta-contenido">
+              <h3>Florales</h3>
+              <p>Delicados, románticos y elegantes.</p>
+              <a class="enlace-producto" href="https://wa.me/50663638746?text=Hola%2C%20quiero%20consultar%20por%20fragancias%20florales." target="_blank" rel="noopener">Consultar aroma ↗</a>
+            </div>
+          </article>
 
-    <!-- Botón para regresar al inicio -->
-    <a
-        class="back-to-top"
-        href="#inicio"
-        aria-label="Volver al inicio de la página"
-    >
-        ↑
-    </a>
+          <article class="tarjeta">
+            <img
+              src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=650&q=85"
+              alt="Perfume de estilo fresco"
+              loading="lazy"
+            >
+            <div class="tarjeta-contenido">
+              <h3>Frescos</h3>
+              <p>Ligeros, limpios y llenos de energía.</p>
+              <a class="enlace-producto" href="https://wa.me/50663638746?text=Hola%2C%20quiero%20consultar%20por%20fragancias%20frescas." target="_blank" rel="noopener">Consultar aroma ↗</a>
+            </div>
+          </article>
+
+          <article class="tarjeta">
+            <img
+              src="https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=650&q=85"
+              alt="Perfume de estilo amaderado"
+              loading="lazy"
+            >
+            <div class="tarjeta-contenido">
+              <h3>Amaderados</h3>
+              <p>Intensos, sofisticados y envolventes.</p>
+              <a class="enlace-producto" href="https://wa.me/50663638746?text=Hola%2C%20quiero%20consultar%20por%20fragancias%20amaderadas." target="_blank" rel="noopener">Consultar aroma ↗</a>
+            </div>
+          </article>
+
+          <article class="tarjeta">
+            <img
+              src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=650&q=85"
+              alt="Perfume de estilo dulce"
+              loading="lazy"
+            >
+            <div class="tarjeta-contenido">
+              <h3>Dulces</h3>
+              <p>Cálidos, irresistibles y memorables.</p>
+              <a class="enlace-producto" href="https://wa.me/50663638746?text=Hola%2C%20quiero%20consultar%20por%20fragancias%20dulces." target="_blank" rel="noopener">Consultar aroma ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="contenedor">
+        <div class="encabezado">
+          <p class="etiqueta">Tu experiencia importa</p>
+          <h2>¿Por qué elegirnos?</h2>
+          <p>
+            Queremos que encontrar tu próxima fragancia
+            sea una experiencia especial.
+          </p>
+        </div>
+
+        <div class="beneficios">
+          <article class="beneficio">
+            <div class="icono">✧</div>
+            <h3>Atención personalizada</h3>
+            <p>Te ayudamos a encontrar aromas según tus gustos y preferencias.</p>
+          </article>
+
+          <article class="beneficio">
+            <div class="icono">♡</div>
+            <h3>Estilo y personalidad</h3>
+            <p>Descubre opciones para diferentes momentos y ocasiones.</p>
+          </article>
+
+          <article class="beneficio">
+            <div class="icono">◇</div>
+            <h3>Compra sencilla</h3>
+            <p>Consulta por WhatsApp y recibe atención directa para tu compra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <p class="etiqueta">Estamos para ayudarte</p>
+        <h2>Encuentra tu próxima fragancia</h2>
+        <p>
+          ¿Buscas un aroma especial o necesitas recomendaciones?
+          Escríbenos y te ayudaremos a encontrar tu próxima esencia.
+        </p>
+        <a
+          class="boton boton-dorado"
+          href="https://wa.me/50663638746?text=Hola%2C%20AURA%20PERFUMES.%20Quiero%20consultar%20por%20sus%20fragancias."
+          target="_blank"
+          rel="noopener"
+        >CONSULTAR POR WHATSAPP</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <a href="#inicio" class="logo">AURA PERFUMES</a>
+      <p>Fragancias que reflejan tu esencia.</p>
+      <p>© 2026 AURA PERFUMES. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-flotante"
+    href="https://wa.me/50663638746?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20perfumes."
+    target="_blank"
+    rel="noopener"
+    aria-label="Consultar por WhatsApp"
+  >WhatsApp ↗</a>
 
 </body>
 </html>
