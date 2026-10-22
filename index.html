@@ -1,0 +1,414 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre AURA PERFUMES, fragancias para cada esencia y ocasión.">
+    <title>AURA PERFUMES | Encuentra tu esencia</title>
+
+    <style>
+        :root {
+            --crema: #FBF6EF;
+            --cafe: #2E2118;
+            --dorado: #C98A2C;
+            --blanco: #FFFFFF;
+            --beige: #E9DFD4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--crema);
+            color: var(--cafe);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: var(--blanco);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--beige);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        .hero {
+            min-height: 510px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(110deg, #FBF6EF 45%, #E9DFD4 100%);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            color: #986018;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.08;
+            margin: 20px 0;
+        }
+
+        h1 span {
+            color: var(--dorado);
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 500px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 25px;
+            background: var(--cafe);
+            color: var(--blanco);
+            border: 1px solid var(--cafe);
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: var(--dorado);
+            border-color: var(--dorado);
+        }
+
+        section {
+            padding: 75px 7%;
+            scroll-margin-top: 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(30px, 5vw, 44px);
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .about {
+            text-align: center;
+            background: var(--blanco);
+        }
+
+        .about-text {
+            max-width: 760px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .fragrances {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .fragrance-card {
+            background: var(--blanco);
+            border: 1px solid var(--beige);
+            text-align: center;
+            padding: 30px 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fragrance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px #2E211812;
+        }
+
+        .fragrance-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .fragrance-card h3 {
+            font-family: Georgia, serif;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .benefits {
+            background: var(--cafe);
+            color: var(--blanco);
+        }
+
+        .benefits .section-heading p {
+            color: var(--beige);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            text-align: center;
+        }
+
+        .benefit-grid h3 {
+            color: #E7B96D;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            background: var(--blanco);
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin-bottom: 25px;
+        }
+
+        footer {
+            padding: 30px 7%;
+            background: var(--cafe);
+            color: var(--blanco);
+            text-align: center;
+        }
+
+        footer strong {
+            color: #E7B96D;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 760px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px 18px;
+            }
+
+            .hero {
+                min-height: 420px;
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            .fragrances {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .fragrances {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#inicio" aria-label="AURA PERFUMES, inicio">
+            AURA <span>PERFUMES</span>
+        </a>
+
+        <nav aria-label="Navegación principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#fragancias">Fragancias</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p class="eyebrow">El arte de elegir tu esencia</p>
+
+                <h1>Una fragancia.<br>Una <span>esencia</span> única.</h1>
+
+                <p>
+                    Descubre aromas que hablan de ti, acompañan tus momentos
+                    y convierten cada recuerdo en algo especial.
+                </p>
+
+                <a class="button" href="#fragancias">Descubrir fragancias</a>
+            </div>
+        </section>
+
+        <section class="about" id="nosotros">
+            <div class="section-heading">
+                <p class="eyebrow">Nuestra esencia</p>
+                <h2>Sobre AURA PERFUMES</h2>
+            </div>
+
+            <p class="about-text">
+                Creemos que cada fragancia cuenta una historia.
+                En AURA PERFUMES queremos ayudarte a descubrir aromas
+                que reflejen tu personalidad y te acompañen en cada ocasión.
+                Elegancia, autenticidad y estilo en una sola experiencia.
+            </p>
+        </section>
+
+        <section id="fragancias">
+            <div class="section-heading">
+                <p class="eyebrow">Encuentra tu aroma</p>
+                <h2>Un aroma para cada esencia</h2>
+                <p>Explora las familias olfativas y encuentra tu favorita.</p>
+            </div>
+
+            <div class="fragrances">
+                <article class="fragrance-card">
+                    <div class="fragrance-icon" aria-hidden="true">🌸</div>
+                    <h3>Florales</h3>
+                    <p>Delicados, románticos y elegantes.</p>
+                </article>
+
+                <article class="fragrance-card">
+                    <div class="fragrance-icon" aria-hidden="true">🌿</div>
+                    <h3>Frescos</h3>
+                    <p>Ligeros, limpios y llenos de energía.</p>
+                </article>
+
+                <article class="fragrance-card">
+                    <div class="fragrance-icon" aria-hidden="true">🪵</div>
+                    <h3>Amaderados</h3>
+                    <p>Intensos, sofisticados y envolventes.</p>
+                </article>
+
+                <article class="fragrance-card">
+                    <div class="fragrance-icon" aria-hidden="true">✨</div>
+                    <h3>Dulces</h3>
+                    <p>Cálidos, irresistibles y memorables.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="benefits" id="beneficios">
+            <div class="section-heading">
+                <p class="eyebrow">Tu experiencia importa</p>
+                <h2>¿Por qué elegirnos?</h2>
+                <p>Queremos que encontrar tu próxima fragancia sea una experiencia especial.</p>
+            </div>
+
+            <div class="benefit-grid">
+                <article>
+                    <h3>Atención personalizada</h3>
+                    <p>Te ayudamos a encontrar aromas según tus gustos.</p>
+                </article>
+
+                <article>
+                    <h3>Estilo y personalidad</h3>
+                    <p>Descubre opciones para diferentes momentos y ocasiones.</p>
+                </article>
+
+                <article>
+                    <h3>Compra sencilla</h3>
+                    <p>Consulta por nuestros canales de contacto.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact" id="contacto">
+            <div class="contact-box">
+                <div class="section-heading">
+                    <p class="eyebrow">Estamos para ayudarte</p>
+                    <h2>Encuentra tu próxima fragancia</h2>
+                </div>
+
+                <p>
+                    ¿Buscas un aroma especial o necesitas recomendaciones?
+                    Escríbenos por WhatsApp.
+                </p>
+
+                <!-- Sustituye el número de ejemplo por el WhatsApp real de la tienda. -->
+                <a
+                    class="button"
+                    href="https://wa.me/50600000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Consultar por WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>AURA PERFUMES</strong></p>
+        <p>Fragancias que reflejan tu esencia.</p>
+        <p>&copy; <span id="year"></span> AURA PERFUMES. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+```
